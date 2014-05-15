@@ -1,0 +1,31 @@
+{
+  "name": "zaz",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./lib/zaz",
+  "scripts": {
+    "test": "mocha test --recursive -R spec"
+  },
+  "dependencies": {
+    "ssh2": "^0.2.23",
+    "path-extra": "^0.2.0",
+    "commander": "^2.2.0",
+    "lodash": "^2.4.1",
+    "async": "^0.8.0",
+    "colors": "^0.6.2"
+  },
+  "devDependencies": {
+    "should": "^3.3.1",
+    "mocha": "^1.18.2"
+  },
+  "main": "./lib/zaz",
+  "directories": {
+    "lib": "lib"
+  },
+  "bin": {
+    "zaz": "./bin/zaz.js"
+  },
+  "preferGlobal": true,
+  "author": "Ruslan Bredikhin",
+  "license": "MIT"
+}

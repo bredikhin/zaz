@@ -1,0 +1,13 @@
+{
+  "stages": {
+    "test": {
+      "user": "deployer",
+      "git": "git@github.com:bredikhin/zaz.git",
+      "path": "~/test",
+      "hosts": [
+        "127.0.0.1",
+        "127.0.0.1"
+      ]
+    }
+  }
+}
