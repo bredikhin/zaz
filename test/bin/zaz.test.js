@@ -4,8 +4,49 @@
  * Dependencies
  */
 var should = require('should');
-var commander = require('commander');
-//var program = require('../../bin/zaz');
+var _ = require('lodash');
+var path = require('path');
+var commander = require('../../bin/zaz');
 
 describe('Program', function() {
+  before(function(done) {
+    process.chdir(path.join(cwd, 'test', 'fixtures'));
+
+    done();
+  });
+
+  after(function(done) {
+    process.chdir(cwd);
+
+    done();
+  });
+
+  it('should have a command to display the version number', function(done) {
+    _.map(commander.commands, function(command) {
+      return command._name;
+    }).should.containEql('version');
+
+    _.map(commander.options, function(option) {
+      return option.short;
+    }).should.containEql('-v');
+
+    _.map(commander.options, function(option) {
+      return option.long;
+    }).should.containEql('--version');
+    done();
+  });
+
+  it('should have a command to display the usage', function(done) {
+    _.map(commander.commands, function(command) {
+      return command._name;
+    }).should.containEql('help');
+    done();
+  });
+
+  it('fails if the config file is missing', function(done) {
+    process.chdir(cwd);
+    commander = require('./bin/zaz');
+
+    done();
+  });
 });

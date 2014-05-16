@@ -1,13 +1,48 @@
 {
   "stages": {
-    "test": {
+    "valid": {
       "user": "deployer",
       "git": "git@github.com:bredikhin/zaz.git",
       "path": "~/test",
       "hosts": [
-        "127.0.0.1",
+        "localhost",
         "127.0.0.1"
       ]
-    }
+    },
+    "missingUsername": {
+      "git": "git@github.com:bredikhin/zaz.git",
+      "path": "~/test",
+      "hosts": [
+        "localhost",
+        "127.0.0.1"
+      ]
+    },
+    "missingGit": {
+      "user": "deployer",
+      "path": "~/test",
+      "hosts": [
+        "localhost",
+        "127.0.0.1"
+      ]
+    },
+    "missingPath": {
+      "user": "deployer",
+      "git": "git@github.com:bredikhin/zaz.git",
+      "hosts": [
+        "localhost",
+        "127.0.0.1"
+      ]
+    },
+    "missingHosts": {
+      "user": "deployer",
+      "git": "git@github.com:bredikhin/zaz.git",
+      "path": "~/test"
+    },
+    "emptyHosts": {
+      "user": "deployer",
+      "git": "git@github.com:bredikhin/zaz.git",
+      "path": "~/test",
+      "hosts": []
+    },
   }
 }

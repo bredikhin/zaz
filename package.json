@@ -2,6 +2,15 @@
   "name": "zaz",
   "version": "0.0.1",
   "description": "Simple Node.js deployment, Capistrano-style",
+  "keywords": [
+    "capistrano",
+    "deploy",
+    "dploy",
+    "deployment",
+    "ssh",
+    "git",
+    "remote"
+  ],
   "main": "./lib/zaz",
   "scripts": {
     "test": "mocha test --recursive -R spec"

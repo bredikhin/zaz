@@ -8,7 +8,6 @@ var should = require('should');
 var EventEmitter = require('events').EventEmitter;
 var Zaz = require('../../lib/zaz');
 var config = require('../fixtures/zaz.json');
-var zaz = new Zaz(config.stages.test);
 var cwd = process.cwd();
 
 describe('Zaz', function() {
@@ -25,6 +24,7 @@ describe('Zaz', function() {
   });
 
   it('is an EventEmitter', function(done) {
+    var zaz = new Zaz(config.stages.valid);
     zaz.should.be.an.instanceOf(EventEmitter);
 
     done();
@@ -34,8 +34,8 @@ describe('Zaz', function() {
     it('fails if the user is missing');
     it('fails if the git repository is missing');
     it('fails if the deployment path is missing');
-    it('fails if the server list is missing');
-    it('fails if the server list is empty');
+    it('fails if the host list is missing');
+    it('fails if the host list is empty');
   });
 
   describe('has `deploy` method which', function() {

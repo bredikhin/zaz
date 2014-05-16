@@ -16,12 +16,29 @@ var NOOP = function () {};
 module.exports = commander;
 
 /**
- * Common
+ * Help
+ */
+commander
+  .command('help')
+  .description('output usage information')
+  .usage('zaz help')
+  .action(commander.help)
+  .unknownOption = NOOP;
+
+/**
+ * Version
  */
 commander
   .version(require('../package.json').version, '-v, --version')
-  .usage('<stage>')
+  .usage('<stage>');
+commander
+  .command('version')
+  .description('output version number')
+  .usage('zaz version')
+  .action(commander.versionInformation)
   .unknownOption = NOOP;
+
+commander.unknownOption = NOOP;
 
 if (process.env.NODE_ENV !== 'test') {
   commander.parse(process.argv);
@@ -37,5 +54,5 @@ if (process.env.NODE_ENV !== 'test') {
         zaz.deploy();
       }
     }
-  }    
+  }
 }
