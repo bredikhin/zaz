@@ -43,6 +43,6 @@
       "git": "git@github.com:bredikhin/zaz.git",
       "path": "~/test",
       "hosts": []
-    },
+    }
   }
 }

@@ -6,7 +6,6 @@
  */
 var commander = require('commander');
 var path = require('path');
-var config = require(path.join(process.cwd(), 'zaz.json'));
 var Zaz = require('../lib/zaz');
 var NOOP = function () {};
 
@@ -47,6 +46,7 @@ if (process.env.NODE_ENV !== 'test') {
   if (args.length == 0)
     commander.help();
   else {
+    var config = require(path.join(process.cwd(), 'zaz.json'));
     for (var i = 0; i < args.length; i++) {
       var stageConfig = config.stages[args[i]];
       if (stageConfig) {

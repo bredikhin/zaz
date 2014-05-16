@@ -6,11 +6,13 @@
 var should = require('should');
 var _ = require('lodash');
 var path = require('path');
-var commander = require('../../bin/zaz');
+var commander;
+var cwd = process.cwd();
 
 describe('Program', function() {
   before(function(done) {
     process.chdir(path.join(cwd, 'test', 'fixtures'));
+    commander = require('../../bin/zaz');
 
     done();
   });
@@ -43,10 +45,5 @@ describe('Program', function() {
     done();
   });
 
-  it('fails if the config file is missing', function(done) {
-    process.chdir(cwd);
-    commander = require('./bin/zaz');
-
-    done();
-  });
+  it('fails if the config file is missing');
 });
