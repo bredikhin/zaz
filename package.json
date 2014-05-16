@@ -1,7 +1,7 @@
 {
   "name": "zaz",
   "version": "0.0.1",
-  "description": "",
+  "description": "Simple Node.js deployment, Capistrano-style",
   "main": "./lib/zaz",
   "scripts": {
     "test": "mocha test --recursive -R spec"
@@ -18,7 +18,7 @@
     "should": "^3.3.1",
     "mocha": "^1.18.2"
   },
-  "main": "./lib/zaz",
+  "main": "./lib/zaz.js",
   "directories": {
     "lib": "lib"
   },
@@ -26,6 +26,16 @@
     "zaz": "./bin/zaz.js"
   },
   "preferGlobal": true,
+  "engines": {
+    "node": ">= 0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:bredikhin/zaz.git"
+  },
+  "bugs": {
+    "url": "http://github.com/bredikhin/zaz/issues"
+  },
   "author": "Ruslan Bredikhin",
   "license": "MIT"
 }
