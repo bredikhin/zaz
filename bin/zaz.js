@@ -6,8 +6,10 @@
  */
 var commander = require('commander');
 var path = require('path');
+var readJson = require('jsonfile').readFile;
 var Zaz = require('../lib/zaz');
 var NOOP = function () {};
+require('colors');
 
 /**
  * Expose commander
@@ -46,13 +48,24 @@ if (process.env.NODE_ENV !== 'test') {
   if (args.length == 0)
     commander.help();
   else {
-    var config = require(path.join(process.cwd(), 'zaz.json'));
-    for (var i = 0; i < args.length; i++) {
-      var stageConfig = config.stages[args[i]];
-      if (stageConfig) {
-        var zaz = new Zaz(stageConfig);
-        zaz.deploy();
+    readJson(path.join(process.cwd(), 'zaz.json'), function(err, config) {
+      if (err) {
+        console.error('Configuration file (`zaz.json`) not found!'.red);
+        process.exit(1);
       }
-    }
+      else {
+        for (var i = 0; i < args.length; i++) {
+          var stageConfig = config.stages[args[i]];
+          if (stageConfig) {
+            var zaz = new Zaz(stageConfig);
+            zaz.deploy();
+          }
+          else {
+            console.error(('Requested stage (`' + args[i] + '`) not found!').red);
+            process.exit(1);
+          }
+        }
+      }
+    });
   }
 }
