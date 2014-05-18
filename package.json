@@ -25,8 +25,9 @@
     "ssh2": "^0.2.23"
   },
   "devDependencies": {
-    "should": "^3.3.1",
-    "mocha": "^1.18.2"
+    "mocha": "^1.18.2",
+    "pre-commit": "0.0.7",
+    "should": "^3.3.1"
   },
   "directories": {
     "lib": "lib"
