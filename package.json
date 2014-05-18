@@ -11,23 +11,23 @@
     "git",
     "remote"
   ],
-  "main": "./lib/zaz",
+  "main": "./lib/zaz.js",
   "scripts": {
-    "test": "mocha test --recursive -R spec"
+    "test": "NODE_ENV=test mocha test --recursive -R spec"
   },
   "dependencies": {
-    "ssh2": "^0.2.23",
-    "path-extra": "^0.2.0",
-    "commander": "^2.2.0",
-    "lodash": "^2.4.1",
     "async": "^0.8.0",
-    "colors": "^0.6.2"
+    "colors": "^0.6.2",
+    "commander": "^2.2.0",
+    "jsonfile": "^1.1.1",
+    "lodash": "^2.4.1",
+    "path-extra": "^0.2.0",
+    "ssh2": "^0.2.23"
   },
   "devDependencies": {
     "should": "^3.3.1",
     "mocha": "^1.18.2"
   },
-  "main": "./lib/zaz.js",
   "directories": {
     "lib": "lib"
   },
