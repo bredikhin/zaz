@@ -23,7 +23,7 @@ describe('Program', function() {
     done();
   });
 
-  it('should have a command to display the version number', function(done) {
+  it('has a command to display the version number', function(done) {
     _.map(commander.commands, function(command) {
       return command._name;
     }).should.containEql('version');
@@ -38,12 +38,10 @@ describe('Program', function() {
     done();
   });
 
-  it('should have a command to display the usage', function(done) {
+  it('has a command to display the usage', function(done) {
     _.map(commander.commands, function(command) {
       return command._name;
     }).should.containEql('help');
     done();
   });
-
-  it('fails if the config file is missing');
 });
