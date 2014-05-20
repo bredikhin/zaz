@@ -22,6 +22,7 @@
     "jsonfile": "^1.1.1",
     "lodash": "^2.4.1",
     "path-extra": "^0.2.0",
+    "prelog": "0.0.2",
     "ssh2": "^0.2.23"
   },
   "devDependencies": {
