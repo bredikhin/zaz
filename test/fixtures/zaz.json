@@ -9,7 +9,7 @@
         "127.0.0.1"
       ]
     },
-    "missingUsername": {
+    "missingUser": {
       "git": "git@github.com:bredikhin/zaz.git",
       "path": "~/test",
       "hosts": [
