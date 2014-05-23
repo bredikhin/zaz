@@ -24,7 +24,7 @@
     "path-extra": "^0.2.0",
     "prelog": "0.0.3",
     "ssh2": "^0.2.23",
-    "sssh": "0.0.1"
+    "sssh": "0.0.2"
   },
   "devDependencies": {
     "mocha": "^1.18.2",
