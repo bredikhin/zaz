@@ -49,7 +49,7 @@ if (process.env.NODE_ENV !== 'test') {
     var zaz = new Zaz(args[0]);
     zaz.deploy(function(err) {
       if (err) {
-        console.error(err.toString().red);
+        console.error('\n' + err.toString().red);
         process.exit(1);
       }
       
