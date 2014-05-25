@@ -16,7 +16,7 @@
     "test": "NODE_ENV=test mocha test --recursive -R spec"
   },
   "dependencies": {
-    "async": "^0.8.0",
+    "async": "^0.9.0",
     "colors": "^0.6.2",
     "commander": "^2.2.0",
     "jsonfile": "^1.1.1",
