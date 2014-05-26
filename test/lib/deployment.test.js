@@ -5,6 +5,7 @@
  */
 var path = require('path');
 var should = require('should');
+var _ = require('lodash');
 var Transform = require('stream').Transform;
 var Deployment = require('../../lib/deployment');
 var config = require('../fixtures/zaz.json');
@@ -86,18 +87,73 @@ describe('Deployment stream', function() {
       });
     });
 
-    describe('attaches', function() {
-      it('a `ready` event');
+    describe('accepts a valid configuration and', function() {
+      var deploymentConfig = _.cloneDeep(config.stages.valid);
+      deploymentConfig.host = deploymentConfig.hosts[0];
+      var deployment;
+      var events = [
+        'ready',
+        'clonable',
+        'installable',
+        'symlinkable',
+        'restartable'
+      ];
+      
+      beforeEach(function(done) {
+        deployment = new Deployment(deploymentConfig);
 
-      it('a `clonable` event');
+        done();
+      });
 
-      it('a `installable` event');
+      it('establishes an SSH connection', function(done) {
+        deployment.start();
+        should(deployment._ssh).be.Ok;
+        
+        done();
+      });
+      
+      describe('has', function() {
+        beforeEach(function(done) {
+          deployment.on('ready', function(err) {
+            done();
+          });
 
-      it('a `symlinkable` event');
+          deployment.start();
+        });
+        
+        for(var i = 0; i < events.length; i++) {
+          var event = events[i];
+          it('`' + event + '` event attached', function(done) {
+            Object.keys(deployment._events).should.containEql(event);
 
-      it('a `restartable` event');
+            done();
+          });
+        }
+      });
+
+      it('fires events in the right sequence', function(done) {
+        function closuredTest(j) {
+          var event = events[j];
+          var previous = events[j-1];
+          
+          deployment.on(event, function() {
+            if (j > 0)
+              should(firings[previous]).be.Ok;
+            firings[event] = true;
+
+            if (j == events.length-1)
+              done();
+          });
+        }
+        
+        var firings = {};
+        
+        for(var i = 0; i < events.length; i++) {
+          closuredTest(i);
+        }
+        
+        deployment.start();
+      });
     });
-
-    it('establishes SSH connection');
   });
 });
