@@ -96,6 +96,7 @@ describe('Zaz', function() {
       });
     });
 
-    it('creates separate child processes for every host');
+    it('creates separate deployment processes for every host');
+    it('passes errors from deployment streams');
   });
 });
