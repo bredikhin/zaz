@@ -3,4 +3,4 @@ node_js:
   - "0.10"
   - "0.11"
 before_script:
-  - touch ~/.ssh/id_rsa.pub
+  - touch ~/.ssh/id_rsa
