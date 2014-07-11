@@ -23,7 +23,7 @@
     "lodash": "^2.4.1",
     "path-extra": "^0.2.0",
     "prelog": "0.0.3",
-    "ssh2": "^0.2.23",
+    "ssh2": "^0.3.3",
     "sssh": "0.0.2"
   },
   "devDependencies": {
